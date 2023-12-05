@@ -5,16 +5,13 @@ const userLogin = {};
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-
+   
     const data = new FormData(event.target);
 
     data.forEach((value, key) => {
-        value === ""? alert ('All form fields must be filled in'): userLogin[key] = value.trim();
+        value != "" ? userLogin[key] = value.trim() : alert('All form fields must be filled in');
     })
+
     console.log(userLogin);
-    event.target.reset();
+    form.reset();
 });
-
-
-
-
